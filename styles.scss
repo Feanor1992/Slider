@@ -1,0 +1,172 @@
+$dark: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+$text-color: #ffffff;
+$font-size: 16px;
+
+@mixin main-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@mixin container-flex{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@mixin links-tag{
+    text-decoration: none;
+    color: $text-color;
+}
+
+@mixin margin-auto {
+    margin: auto;
+}
+
+@mixin btn-gradient {
+    background: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    color: $text-color;
+    cursor: pointer;
+}
+
+@mixin media($min-width, $max-width) {
+    body {
+       min-width: $min-width;
+       max-width: $max-width;
+    }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body{
+    min-width: 1366px;
+    background: $dark no-repeat top center;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: $font-size;
+    line-height: $font-size * 1.3;
+    color: $text-color;
+}
+
+body{
+    @include main-flex;
+}
+
+a {
+    @include links-tag;
+}
+
+.main-header {
+    flex: 0 0 auto;
+    margin-top: 15px;
+    @include container-flex;
+}
+
+main {
+    flex: 1 0 auto;
+    @include main-flex;
+    justify-content: center;
+    @include margin-auto;
+}
+
+button:hover {
+    @include btn-gradient;
+}
+
+input:hover {
+    cursor: pointer;
+}
+
+.main-footer {
+    flex-shrink: 0;
+    @include container-flex;
+    justify-content: center;
+}
+
+.main-footer a{
+    align-self: center;
+    padding-left: 10px;
+}
+
+.darken {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+.slider {
+    width: 100%;
+    display: inherit;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+figure {
+    margin: 0.5em;
+    width: 300px;
+    display: inherit;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+
+figcaption {
+    font-size: 1.2em;
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 0.25em;
+    color: #ddd;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+img {
+    max-width: 80%;
+    max-height: 80vh;
+    cursor: pointer;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    background: none;
+    border: none;
+    outline: none;
+    /*filter: invert();*/
+}
+
+.left {
+    left: 2em;
+}
+
+.right {
+    right: 2em;
+}
+
+.close {
+    top: 2em;
+    right: 1em;
+}
+
+@media (min-width:320px) and (max-width:480px) {
+    @include media(320px, 480px);
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    @include media(481px, 768px);
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    @include media(769px, 1024px);
+}
