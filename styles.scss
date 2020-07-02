@@ -68,7 +68,7 @@ a {
     @include container-flex;
 }
 
-main {
+.main {
     flex: 1 0 auto;
     @include main-flex;
     justify-content: center;
@@ -98,13 +98,13 @@ input:hover {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: linear-gradient(to top, #30cfd0 0%, #330867 100%);
     z-index: -1;
 }
 
-.slider {
+.gallery {
     width: 100%;
-    display: inherit;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -113,7 +113,7 @@ input:hover {
 figure {
     margin: 0.5em;
     width: 300px;
-    display: inherit;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -121,11 +121,10 @@ figure {
 }
 
 figcaption {
-    font-size: 1.2em;
-    text-transform: capitalize;
+    font-size: $font-size * 1.2;
     text-align: center;
     margin-bottom: 0.25em;
-    color: #ddd;
+    color: $text-color;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.4);
 }
 
@@ -133,6 +132,17 @@ img {
     max-width: 80%;
     max-height: 80vh;
     cursor: pointer;
+}
+
+.opacity {
+    margin: 0;
+    width: auto;
+    position: absolute;
+    opacity: 0;
+}
+
+.hidden {
+    display: none;
 }
 
 .button {
@@ -170,3 +180,50 @@ img {
 @media (min-width: 769px) and (max-width: 1024px) {
     @include media(769px, 1024px);
 }
+
+.dot-windmill {
+    position: relative;
+    top: -10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #9880ff;
+    color: #9880ff;
+    transform-origin: 5px 15px;
+    animation: dot-windmill 2s infinite linear;
+  }
+  
+  .dot-windmill::before, .dot-windmill::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+  }
+  
+  .dot-windmill::before {
+    left: -8.66px;
+    top: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #9880ff;
+    color: #9880ff;
+  }
+  
+  .dot-windmill::after {
+    left: 8.66px;
+    top: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #9880ff;
+    color: #9880ff;
+  }
+  
+  @keyframes dot-windmill {
+    0% {
+      transform: rotateZ(0deg) translate3d(0, 0, 0);
+    }
+    100% {
+      transform: rotateZ(720deg) translate3d(0, 0, 0);
+    }
+  }
