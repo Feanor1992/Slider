@@ -40,14 +40,17 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+    overflow-y: auto
+
 }
 
 body{
     min-width: 1366px;
-    background: $dark no-repeat top center;
+    background: $dark no-repeat;
     -moz-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover;
+    background-origin: border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: $font-size;
     line-height: $font-size * 1.3;
@@ -134,13 +137,6 @@ img {
     cursor: pointer;
 }
 
-.opacity {
-    margin: 0;
-    width: auto;
-    position: absolute;
-    opacity: 0;
-}
-
 .hidden {
     display: none;
 }
@@ -153,32 +149,74 @@ img {
     background: none;
     border: none;
     outline: none;
-    /*filter: invert();*/
+    filter: invert(1);
 }
 
-.left {
+.left-button {
     left: 2em;
+    width: 80px;
+    height: 80px;
 }
 
-.right {
+.right-button {
     right: 2em;
+    width: 80px;
+    height: 80px;
 }
 
-.close {
-    top: 2em;
-    right: 1em;
+.close-button {
+    top: 4em;
+    right: 2em;
+    width: 120px;
+    height: 120px;
 }
 
 @media (min-width:320px) and (max-width:480px) {
     @include media(320px, 480px);
+
+    .left-button {
+        left: 0.05em;
+        width: 45px;
+        height: 30px;
+    }
+    
+    .right-button {
+        right: 0.05em;
+        width: 45px;
+        height: 30px;
+    }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
     @include media(481px, 768px);
+
+    .left-button {
+        left: 0.05em;
+        width: 45px;
+        height: 30px;
+    }
+    
+    .right-button {
+        right: 0.05em;
+        width: 45px;
+        height: 30px;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
     @include media(769px, 1024px);
+
+    .left-button {
+        left: 0.05em;
+        width: 65px;
+        height: 30px;
+    }
+    
+    .right-button {
+        right: 0.05em;
+        width: 65px;
+        height: 30px;
+    }
 }
 
 .dot-windmill {
