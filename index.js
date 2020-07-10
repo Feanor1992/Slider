@@ -87,7 +87,7 @@ function generateGallery() {
                 leftImg.src = "img/pointing-left.svg";
                 leftButton.appendChild(leftImg);
                 buttons.appendChild(leftButton);
-                leftButton.addEventListener('click', () => slideChanging('-'));
+                leftButton.addEventListener("click", () => slideChanging("-"));
 
                 let rightButton = document.createElement("button");
                 rightButton.classList.add("button", "right-button");
@@ -95,9 +95,9 @@ function generateGallery() {
                 rightImg.src = "img/pointing-right.svg";
                 rightButton.appendChild(rightImg);
                 buttons.appendChild(rightButton);
-                rightButton.addEventListener('click', () => slideChanging('+'));
+                rightButton.addEventListener('click', () => slideChanging("+"));
 
-                let closeButton = document.createElement("button");
+                let closeButton = document.createElement('button');
                 closeButton.classList.add("button", "close-button");
                 let closedImg = document.createElement("img");
                 closedImg.src = "img/closed.svg";
@@ -113,13 +113,13 @@ function generateGallery() {
         function slideChanging(e) {
             figures.forEach(e => e.style.opacity = 0);
 
-            if (e === '-') {
+            if (e == '-') {
                 if (figure === figures[0]) {
                     figure = figures[figures.length - 1];
                 } else {
                     figure = figure.previousElementSibling;
                 }
-            } else if (e === '+') {
+            } else if (e == '+') {
                 if (figure === figures[figures.length - 1]) {
                     figure = figures[0];
                 } else {
