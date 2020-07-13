@@ -70,13 +70,12 @@ function generateGallery() {
         
         //generate buttons in slider and change opacity
         //to choosen element
-        if (figure.hasAttribute("style")) {
+        if (figure.hasAttribute("style"))
             figure.style.opacity = 1;
             generateButtons();
-        } else generateButtons();
 
         function generateButtons() {
-            if (document.querySelector(".buttons") === null) {
+            if (!document.querySelector(".buttons")) {
                 let buttons = document.createElement("div");
                 buttons.classList.add('buttons');
                 gallery.appendChild(buttons);

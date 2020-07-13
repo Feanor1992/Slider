@@ -93,6 +93,11 @@ img {
   max-height: 80vh;
   cursor: pointer; }
 
+img:hover {
+  opacity: 0.6;
+  transform: scale(1.1);
+  margin-top: 10px; }
+
 .hidden {
   display: none; }
 
